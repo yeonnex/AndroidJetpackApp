@@ -2,7 +2,7 @@ package com.yeonnex.jetpackapp.ui.main
 
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel() {
+class MainViewModel : ViewModel() { // 뷰모델 상속
     private val usd_to_eu_rate = 0.74f
     private var dollarText = ""
     private var result: Float = 0f
