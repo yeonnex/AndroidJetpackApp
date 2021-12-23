@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.oz10.jetpackapp.ui.main.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_secondFragment2"
+            app:destination="@id/secondFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/secondFragment2"
         android:name="com.yeonnex.jetpackapp.SecondFragment"
