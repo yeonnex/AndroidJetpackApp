@@ -12,7 +12,10 @@ import com.yeonnex.jetpackapp.R
 import com.yeonnex.jetpackapp.databinding.MainFragmentBinding
 import com.yeonnex.jetpackapp.BR.convertViewModel
 import com.yeonnex.jetpackapp.TestObserver
+import com.yeonnex.jetpackapp.TestOwner
 import com.yeonnex.jetpackapp.ui.main.MainViewModel
+
+private lateinit var testOwner: TestOwner
 
 class MainFragment : Fragment() {
 
@@ -39,7 +42,13 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        lifeCycle.addObersver(TestObserver())
+        // 하나의 옵저버를 다수의 생명주기 소유자에게 사용할 수 있지만
+        // 중복된 메시지가 출력되지 않도록 잠시 주석처리
+        // lifeCycle.addObserver(TestObserver())
+        testOwner = TestOwner()
+        testOwner.startOwner()
+        testOwner.stopOwner()
+
         activity?.application?.let {
             val factory = SavedStateViewModelFactory(it, this)
             viewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
