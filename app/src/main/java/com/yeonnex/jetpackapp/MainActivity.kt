@@ -8,6 +8,7 @@ import com.yeonnex.jetpackapp.ui.main.MainFragment
 // NavController 클래스
 //  내비게이션 스택을 사용해서 사용자의 앱 내부 목적지 경로를 추작하여 화면 이동
 
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
