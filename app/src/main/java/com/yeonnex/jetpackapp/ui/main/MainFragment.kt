@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.SavedStateViewModelFactory
+import androidx.navigation.Navigation
 import com.yeonnex.jetpackapp.R
 import com.yeonnex.jetpackapp.databinding.MainFragmentBinding
 import com.yeonnex.jetpackapp.BR.convertViewModel
@@ -54,6 +55,10 @@ class MainFragment : Fragment() {
             viewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
 
             binding.setVariable(convertViewModel, viewModel)
+        }
+
+        binding.btnSecond.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.mainToSecond)
         }
 
     }
