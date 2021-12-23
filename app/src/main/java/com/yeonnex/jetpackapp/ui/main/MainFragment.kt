@@ -11,6 +11,8 @@ import androidx.lifecycle.SavedStateViewModelFactory
 import com.yeonnex.jetpackapp.R
 import com.yeonnex.jetpackapp.databinding.MainFragmentBinding
 import com.yeonnex.jetpackapp.BR.convertViewModel
+import com.yeonnex.jetpackapp.TestObserver
+import com.yeonnex.jetpackapp.ui.main.MainViewModel
 
 class MainFragment : Fragment() {
 
@@ -37,6 +39,7 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        lifeCycle.addObersver(TestObserver())
         activity?.application?.let {
             val factory = SavedStateViewModelFactory(it, this)
             viewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
